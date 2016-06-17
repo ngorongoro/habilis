@@ -23,6 +23,9 @@ class JLineReader {
     reader.setBellEnabled(false)
     reader
   }
+}
+
+object JLineReader extends JLineReader {
 
   private def withJLineTerminal[A](f: => A): A = synchronized {
     val t = jline.TerminalFactory.get
@@ -36,5 +39,3 @@ class JLineReader {
     }
   }
 }
-
-object JLineReader extends JLineReader
