@@ -31,15 +31,15 @@ object Habilis extends Build {
       Version(version).map(_.bumpBugfix.asSnapshot.string).getOrElse(versionFormatError)
     },
     ReleaseKeys.releaseProcess := Seq(
-      checkSnapshotDependencies,
-      inquireVersions,
+      //checkSnapshotDependencies,
+      //inquireVersions,
       runTest,
       setReleaseVersion,
-      commitReleaseVersion,
-      tagRelease,
+      //commitReleaseVersion,
+      //tagRelease,
       ReleaseStep(action = Command.process("publishSigned", _), enableCrossBuild = true),
-      setNextVersion,
-      commitNextVersion,
+      //setNextVersion,
+      //commitNextVersion,
       ReleaseStep(action = Command.process("sonatypeReleaseAll", _), enableCrossBuild = true),
       pushChanges
     )
