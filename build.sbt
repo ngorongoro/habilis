@@ -12,7 +12,7 @@ val MavenLocalRepository = "Maven Local Repository" at "file://" + Path.userHome
 
 val commonSettings = Seq(
   name := "habilis",
-  organization := "com.github.ngorongoro",
+  organization := "ngorongoro",
   bintrayOrganization := Some("ngorongoro"),
   licenses += ("BSD New", url("https://opensource.org/licenses/BSD-3-Clause")),
   scalaVersion := ScalaVersion,
