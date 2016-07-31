@@ -14,6 +14,8 @@ val commonSettings = Seq(
   name := "habilis",
   organization := "ngorongoro",
   bintrayOrganization := Some("ngorongoro"),
+  bintrayRepository := { if (isSnapshot.value) "snapshots" else "releases" },
+  bintrayReleaseOnPublish := !isSnapshot.value,
   licenses += ("BSD New", url("https://opensource.org/licenses/BSD-3-Clause")),
   scalaVersion := ScalaVersion,
   crossScalaVersions := SupportedScalaVersions,
@@ -30,7 +32,7 @@ val publicSettings = Seq(
   publishMavenStyle := true,
   publishArtifact in Test := false,
   publishArtifact in (Compile, packageDoc) := true,
-  publishTo := { if (isSnapshot.value) Some(BintraySnapshots) else Some(BintrayReleases) },
+  publishTo := { if (isSnapshot.value) Some(MavenLocalRepository) else publishTo.value },
   pomIncludeRepository := { _ => false },
   pomExtra := (
     <url>http://github.com/ngorongoro/habilis</url>
