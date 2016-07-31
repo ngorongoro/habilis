@@ -14,6 +14,7 @@ val commonSettings = Seq(
   name := "habilis",
   organization := "com.github.ngorongoro",
   bintrayOrganization := Some("ngorongoro"),
+  licenses += ("BSD New", url("https://opensource.org/licenses/BSD-3-Clause")),
   scalaVersion := ScalaVersion,
   crossScalaVersions := SupportedScalaVersions,
   scalacOptions := Seq("-deprecation", "-language:_"),
@@ -35,7 +36,7 @@ val publicSettings = Seq(
     <url>http://github.com/ngorongoro/habilis</url>
     <licenses>
       <license>
-        <name>BSD 3-Clause</name>
+        <name>BSD New</name>
         <url>https://opensource.org/licenses/BSD-3-Clause</url>
       </license>
     </licenses>
