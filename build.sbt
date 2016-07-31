@@ -2,9 +2,7 @@ val ScalaVersion = "2.11.8"
 
 val SupportedScalaVersions = Seq("2.10.6", "2.11.8", "2.12.0-M4")
 
-val BintraySnapshots = Resolver.bintrayRepo("ngorongoro", "snapshots")
-
-val BintrayReleases = Resolver.bintrayRepo("ngorongoro", "releases")
+val NgoroNgoroRepository = Resolver.bintrayRepo("ngorongoro", "maven")
 
 val MavenCentralRepository = "Maven Central Repository" at "http://repo1.maven.org/maven2"
 
@@ -14,13 +12,12 @@ val commonSettings = Seq(
   name := "habilis",
   organization := "ngorongoro",
   bintrayOrganization := Some("ngorongoro"),
-  bintrayRepository := { if (isSnapshot.value) "snapshots" else "releases" },
   bintrayReleaseOnPublish := !isSnapshot.value,
   licenses += ("BSD New", url("https://opensource.org/licenses/BSD-3-Clause")),
   scalaVersion := ScalaVersion,
   crossScalaVersions := SupportedScalaVersions,
   scalacOptions := Seq("-deprecation", "-language:_"),
-  resolvers ++= Seq(BintraySnapshots, MavenCentralRepository, MavenLocalRepository)
+  resolvers ++= Seq(NgoroNgoroRepository, MavenCentralRepository, MavenLocalRepository)
 ) ++ releaseSettings :+ (ReleaseKeys.crossBuild := true)
 
 val privateSettings = Seq(
