@@ -58,7 +58,7 @@ lazy val root = Project(
   "root",
   file("."),
   settings = commonSettings ++ privateSettings
-).aggregate(cli)
+).aggregate(cli).disablePlugins(BintrayPlugin)
 
 lazy val cli = Project(
   "cli",
